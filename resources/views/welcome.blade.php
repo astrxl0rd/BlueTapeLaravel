@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    BlueTape with Laravel and Heroku!
                 </div>
 
                 <div class="links">
