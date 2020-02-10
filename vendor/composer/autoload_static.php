@@ -410,6 +410,7 @@ class ComposerStaticInit90bbfc0321726e6e081ec605acc66313
     );
 
     public static $classMap = array (
+        'App\\Bluetape_userinfo' => __DIR__ . '/../..' . '/app/Bluetape_userinfo.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
