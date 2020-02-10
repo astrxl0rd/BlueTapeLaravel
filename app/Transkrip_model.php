@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transkrip_model extends Model
 {
-    protected $table = "transkrip";
+    protected $table = "transkrip_models";
     protected $primaryKey = "id";
     protected $fillable = [
         "requestByEmail",
@@ -17,5 +17,4 @@ class Transkrip_model extends Model
         "answeredByEmail",
         "answeredDateTime",
         "answeredMessage"
-    ];
 }

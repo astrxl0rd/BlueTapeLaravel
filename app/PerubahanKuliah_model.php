@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PerubahanKuliah_model extends Model
 {
-    protected $table = "perubahankulah";
+    protected $table = "perubahan_kuliah_models";
     protected $primaryKey = "id";
     protected $fillable = [
         "requestByEmail",
@@ -23,5 +23,4 @@ class PerubahanKuliah_model extends Model
         "answeredByEmail",
         "answeredByDateTime",
         "answeredMessage"
-    ];
 }

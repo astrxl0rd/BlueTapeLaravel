@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class JadwalDosen_Model extends Model
+class JadwalDosen_model extends Model
 {
-    //
-    protected $table = "jadwal_dosen";
+    protected $table = "jadwal_dosen_models";
     protected $primaryKey = "id";
     protected $fillable = [
         "user",
@@ -17,7 +16,4 @@ class JadwalDosen_Model extends Model
         "jenis",
         "label",
         "lastUpdate"
-    ];
-
-
 }
