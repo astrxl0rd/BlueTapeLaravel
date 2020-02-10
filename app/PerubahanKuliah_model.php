@@ -11,7 +11,7 @@ class PerubahanKuliah_model extends Model
     protected $fillable = [
         "requestByEmail",
         "requestDateTime",
-        "mataKulaiName",
+        "mataKuliahName",
         "mataKuliahCode",
         "class",
         "changeType",
