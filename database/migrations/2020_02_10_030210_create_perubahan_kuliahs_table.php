@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserInfoModelsTable extends Migration
+class CreatePerubahanKuliahsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateUserInfoModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_info_models', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('name');
-            $table->timestamp('lastUpdate');
-            
+        Schema::create('perubahan_kuliahs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +26,6 @@ class CreateUserInfoModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_info_models');
+        Schema::dropIfExists('perubahan_kuliahs');
     }
 }
