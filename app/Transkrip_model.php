@@ -17,4 +17,5 @@ class Transkrip_model extends Model
         "answeredByEmail",
         "answeredDateTime",
         "answeredMessage"
+    ];
 }

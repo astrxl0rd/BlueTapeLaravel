@@ -23,4 +23,5 @@ class PerubahanKuliah_model extends Model
         "answeredByEmail",
         "answeredByDateTime",
         "answeredMessage"
+    ];
 }

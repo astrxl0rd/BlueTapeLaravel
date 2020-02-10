@@ -16,4 +16,5 @@ class JadwalDosen_model extends Model
         "jenis",
         "label",
         "lastUpdate"
+    ];
 }

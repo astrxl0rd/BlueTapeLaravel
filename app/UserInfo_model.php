@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserInfo_model extends Model
 {
-    /protected $table = "jadwal_dosen";
+    protected $table = "user_info_modelss";
     protected $primaryKey = "email";
     protected $fillable = [
         "email",
-        "name"s
+        "name"
+    ];
 }
