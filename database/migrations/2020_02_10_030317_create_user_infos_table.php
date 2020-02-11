@@ -14,8 +14,10 @@ class CreateUserInfosTable extends Migration
     public function up()
     {
         Schema::create('user_infos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('email')->primary();
+            $table->string('name');
+            $table->timestamp('lastUpdate');
+
         });
     }
 

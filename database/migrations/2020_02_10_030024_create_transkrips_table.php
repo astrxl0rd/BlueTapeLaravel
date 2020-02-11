@@ -15,6 +15,14 @@ class CreateTranskripsTable extends Migration
     {
         Schema::create('transkrips', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('requestByEmail');
+            $table->timestamp('requestDateTime');
+            $table->string('requestType');
+            $table->string('requestUsage');
+            $table->string('answer');
+            $table->string('answeredByEmail');
+            $table->timestamp('answeredDateTime');
+            $table->string('answeredMessage');
             $table->timestamps();
         });
     }
