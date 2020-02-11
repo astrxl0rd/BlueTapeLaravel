@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePerubahanKuliahModelsTable extends Migration
+class CreatePerubahanKuliahsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePerubahanKuliahModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('perubahan_kuliah_models', function (Blueprint $table) {
+        Schema::create('perubahan_kuliahs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('requestByEmail');
             $table->timestamp('requestDateTime');
@@ -40,6 +40,6 @@ class CreatePerubahanKuliahModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perubahan_kuliah_models');
+        Schema::dropIfExists('perubahan_kuliahs');
     }
 }

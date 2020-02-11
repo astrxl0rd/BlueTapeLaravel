@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJadwalDosenModelsTable extends Migration
+class CreateJadwalDosensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateJadwalDosenModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jadwal_dosen_models', function (Blueprint $table) {
+        Schema::create('jadwal_dosens', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user');
             $table->integer('hari');
@@ -33,6 +33,6 @@ class CreateJadwalDosenModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwal_dosen_models');
+        Schema::dropIfExists('jadwal_dosens');
     }
 }
