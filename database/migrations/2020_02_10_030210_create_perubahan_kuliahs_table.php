@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBluetapeUserinfosTable extends Migration
+class CreatePerubahanKuliahsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateBluetapeUserinfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('bluetape_userinfos', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('name');
-            $table->timestamp('lastUpdate');
+        Schema::create('perubahan_kuliahs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +26,6 @@ class CreateBluetapeUserinfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bluetape_userinfos');
+        Schema::dropIfExists('perubahan_kuliahs');
     }
 }
