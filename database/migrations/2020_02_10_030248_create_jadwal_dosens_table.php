@@ -15,6 +15,13 @@ class CreateJadwalDosensTable extends Migration
     {
         Schema::create('jadwal_dosens', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('user');
+            $table->integer('hari');
+            $table->integer('jam_mulai');
+            $table->integer('durasi');
+            $table->string('jenis');
+            $table->string('label');
+            $table->timestamp('lastUpdate');
             $table->timestamps();
         });
     }
