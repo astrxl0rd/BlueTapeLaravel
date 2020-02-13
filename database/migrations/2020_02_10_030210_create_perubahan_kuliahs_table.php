@@ -15,6 +15,19 @@ class CreatePerubahanKuliahsTable extends Migration
     {
         Schema::create('perubahan_kuliahs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('requestByEmail');
+            $table->timestamp('requestDateTime');
+            $table->string('mataLKuliahName');
+            $table->string('mataLKuliahCode');
+            $table->string('class');
+            $table->string('changeType');
+            $table->timestamp('fromDateTime');
+            $table->string('fromRoom');
+            $table->string('to');
+            $table->string('remarks');
+            $table->string('answer');
+            $table->timestamp('answeredDateTime');
+            $table->string('answeredMessage');
             $table->timestamps();
         });
     }

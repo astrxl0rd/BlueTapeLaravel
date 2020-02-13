@@ -7,15 +7,17 @@ use Illuminate\Support\Facades\Schema;
 class CreateUserInfosTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations
      *
      * @return void
      */
     public function up()
     {
         Schema::create('user_infos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('email')->primary();
+            $table->string('name');
+            $table->timestamp('lastUpdate');
+
         });
     }
 
