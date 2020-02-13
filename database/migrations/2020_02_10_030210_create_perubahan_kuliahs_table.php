@@ -26,9 +26,8 @@ class CreatePerubahanKuliahsTable extends Migration
             $table->string('to');
             $table->string('remarks');
             $table->string('answer');
-            $table->string('answerdByEmail');
-            $table->timestamp('answerdDateTime');
-            $table->string('answerdMessage');
+            $table->timestamp('answeredDateTime');
+            $table->string('answeredMessage');
             $table->timestamps();
         });
     }
