@@ -20,4 +20,8 @@ Route::get('google/callback', 'GoogleController@callback');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/Test', 'HomeController@index')->name('/home');
+
+Auth::routes();
+
+Route::get('/Test', 'HomeController@index')->name('/home');
