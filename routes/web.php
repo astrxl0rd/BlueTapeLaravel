@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('welcome');
 });
 
 Route::get('google', 'GoogleController@redirect');
@@ -20,8 +20,8 @@ Route::get('google/callback', 'GoogleController@callback');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/Test', 'HomeController@index')->name('/home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/Test', 'HomeController@index')->name('/home');

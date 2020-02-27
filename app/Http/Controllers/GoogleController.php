@@ -19,14 +19,14 @@ class GoogleController extends Controller
  
         // jika user masih login lempar ke home
         if (Auth::check()) {
-            return redirect('/home');
+            return redirect('/Test');
         }
  
         $oauthUser = Socialite::driver('google')->user();
         $user = User::where('google_id', $oauthUser->id)->first();
         if ($user) {
             Auth::loginUsingId($user->id);
-            return redirect('/home');
+            return redirect('/Test');
         } else {
             $newUser = User::create([
                 'name' => $oauthUser->name,
@@ -36,7 +36,7 @@ class GoogleController extends Controller
                 //'password' => md5($oauthUser->token),
             ]);
             Auth::login($newUser);
-            return redirect('/home');
+            return redirect('/Test');
         }
     }
 }
