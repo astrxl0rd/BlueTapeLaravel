@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('google', 'GoogleController@redirect');
+Route::get('google/callback', 'GoogleController@callback');
+
+Auth::routes();
+
+Route::get('/Test', 'HomeController@index')->name('/home');
+
+Auth::routes();
+
+Route::get('/Test', 'HomeController@index')->name('/home');
