@@ -30,8 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'google' => [
-        'client_id' => '732329402846-puavefff7hdbcceb9jin21dvacitnkd9.apps.googleusercontent.com',
-        'client_secret' => 'ugAMVhaztV8QxXJU0WcQj4jY',
+        'client_id' => '412613678397-nq1fvb25qdrvakuqsge9pu3i7kp7ksik.apps.googleusercontent.com',
+        'client_secret' => 'sy3aiUYZSmEOT6uJfsrzDWlP',
         // 'redirect' => 'http://localhost/BlueTapeLaravel/public/google/callback',
         'redirect' => 'https://bluetape-with-laravel.herokuapp.com/google/callback', //untuk menjalankan di heroku
     ],
