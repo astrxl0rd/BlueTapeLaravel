@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.head')
+@extends('layouts.topbar')
 
 @section('content')
 <div class="container">
@@ -14,7 +15,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in!<br>
                 </div>
             </div>
         </div>

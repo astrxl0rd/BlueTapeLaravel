@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Socialite;
 use App\User;
+use config\modules;
 
 class GoogleController extends Controller
 {
@@ -18,15 +19,28 @@ class GoogleController extends Controller
     {
  
         // jika user masih login lempar ke home
-        if (Auth::check()) {
-            return redirect('/home');
-        }
+        // if (Auth::check()) {
+        //     return redirect('/home');
+        // }
  
         $oauthUser = Socialite::driver('google')->user();
         $user = User::where('google_id', $oauthUser->id)->first();
+        //jika sudah terdaftar masuk if,kalo belum ke else
         if ($user) {
-            Auth::loginUsingId($user->id);
-            return redirect('/home');
+            //yang diubah mulai dari if bawah
+            //ambil roles dari untuk login
+            $ambilIsi = config(['modules.roles'=>'root']);
+
+            if($user->email == $ambilIsi){
+                Auth::loginUsingId($user->id);
+                return redirect('https://instagram.com');
+            }
+            else{
+                Auth::loginUsingId($user->id);
+                return redirect('https://youtube.com');
+            }
+            //Auth::loginUsingId($user->id);
+            //return redirect('/home');
         } else {
             $newUser = User::create([
                 'name' => $oauthUser->name,
@@ -35,6 +49,14 @@ class GoogleController extends Controller
                 // password tidak akan digunakan ;)
                 //'password' => md5($oauthUser->token),
             ]);
+
+            //disini cek dulu yang login siapa
+            // if($newUser->email == 'cis08025@gmail.com' ){
+            //     Auth::login($newUser);
+            //     return redirect('https://instagram.com');
+            // }
+            //direct ke halaman yang sudah ditentukan
+
             Auth::login($newUser);
             return redirect('/home');
         }
