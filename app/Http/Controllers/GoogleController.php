@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Socialite;
 use App\User;
+use config\modules;
 
 class GoogleController extends Controller
 {
@@ -17,16 +18,37 @@ class GoogleController extends Controller
     public function callback()
     {
  
-        // jika user masih login lempar ke home
-        if (Auth::check()) {
-            return redirect('/Test');
-        }
- 
+        //jika user masih login lempar ke home
+    //    if (Auth::check()) {
+    //        return redirect('/Test');
+    //    }  
         $oauthUser = Socialite::driver('google')->user();
         $user = User::where('google_id', $oauthUser->id)->first();
+        
         if ($user) {
-            Auth::loginUsingId($user->id);
-            return redirect('/Test');
+            //Auth::loginUsingId($user->id);
+            //return redirect('/Test');
+
+            $value = config('modules.roles.root');
+            $value2 = config('modules.roles.mahasiswaftis');  //ini belum jalan karna format di modulesnya belum bener
+            
+    
+
+            if(in_array($user->email,$value))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/Test');
+            }
+            else if($user->email == $value2)
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('https://kompas.com');
+            }
+            
+            else{
+                Auth::loginUsingId($user->id);
+                return redirect('https://youtube.com');
+            }
         } else {
             $newUser = User::create([
                 'name' => $oauthUser->name,
@@ -40,3 +62,4 @@ class GoogleController extends Controller
         }
     }
 }
+
