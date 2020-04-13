@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Socialite;
 use App\User;
+use config\modules;
 
 class GoogleController extends Controller
 {
@@ -17,16 +18,55 @@ class GoogleController extends Controller
     public function callback()
     {
  
-        // jika user masih login lempar ke home
-        if (Auth::check()) {
-            return redirect('/Test');
-        }
- 
+        //jika user masih login lempar ke home
+    //    if (Auth::check()) {
+    //        return redirect('/Test');
+    //    }  
         $oauthUser = Socialite::driver('google')->user();
         $user = User::where('google_id', $oauthUser->id)->first();
+        
         if ($user) {
-            Auth::loginUsingId($user->id);
-            return redirect('/Test');
+            //Auth::loginUsingId($user->id);
+            //return redirect('/Test');
+
+            $valueRoot = config('modules.roles.root');
+            $valueMahasiswaFtis = config('modules.roles.mahasiswaftis'); 
+            $valueStaf = config('modules.roles.stafUnpar'); 
+            $valueDosenInformatika = config('modules.roles.dosenInformatika'); 
+            $valueMahasiswaInformatika = config('modules.roles.mahasiswaInformatika'); 
+            
+                
+            if(in_array($user->email,$valueRoot))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/Test');
+            }
+            else if(preg_match("/$valueMahasiswaFtis/", $user))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/Test');
+            }
+            else if(preg_match("/$valueStaf/", $user))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/Test');
+            }
+            else if(in_array($user->email,$valueDosenInformatika))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/Test');
+            }
+            else if(preg_match("/$valueMahasiswaInformatika/", $user))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/Test');
+            }
+            
+            
+            // else{
+            //     Auth::loginUsingId($user->id);
+            //     return redirect('https://youtube.com');
+            // }
         } else {
             $newUser = User::create([
                 'name' => $oauthUser->name,
@@ -40,3 +80,4 @@ class GoogleController extends Controller
         }
     }
 }
+
