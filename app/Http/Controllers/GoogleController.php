@@ -29,26 +29,44 @@ class GoogleController extends Controller
             //Auth::loginUsingId($user->id);
             //return redirect('/Test');
 
-            $value = config('modules.roles.root');
-            $value2 = config('modules.roles.mahasiswaftis');  //ini belum jalan karna format di modulesnya belum bener
+            $valueRoot = config('modules.roles.root');
+            $valueMahasiswaFtis = config('modules.roles.mahasiswaftis'); 
+            $valueStaf = config('modules.roles.stafUnpar'); 
+            $valueDosenInformatika = config('modules.roles.dosenInformatika'); 
+            $valueMahasiswaInformatika = config('modules.roles.mahasiswaInformatika'); 
             
-    
-
-            if(in_array($user->email,$value))
+                
+            if(in_array($user->email,$valueRoot))
             {
                 Auth::loginUsingId($user->id);
                 return redirect('/Test');
             }
-            else if($user->email == $value2)
+            else if(preg_match("/$valueMahasiswaFtis/", $user))
             {
                 Auth::loginUsingId($user->id);
-                return redirect('https://kompas.com');
+                return redirect('/Test');
+            }
+            else if(preg_match("/$valueStaf/", $user))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/Test');
+            }
+            else if(in_array($user->email,$valueDosenInformatika))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/Test');
+            }
+            else if(preg_match("/$valueMahasiswaInformatika/", $user))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/Test');
             }
             
-            else{
-                Auth::loginUsingId($user->id);
-                return redirect('https://youtube.com');
-            }
+            
+            // else{
+            //     Auth::loginUsingId($user->id);
+            //     return redirect('https://youtube.com');
+            // }
         } else {
             $newUser = User::create([
                 'name' => $oauthUser->name,
