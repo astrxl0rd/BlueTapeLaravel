@@ -29,19 +29,44 @@ class GoogleController extends Controller
         if ($user) {
             //yang diubah mulai dari if bawah
             //ambil roles dari untuk login
-            $ambilIsi = config(['modules.roles'=>'root']);
 
-            if($user->email == $ambilIsi){
+            $valueRoot = config('modules.roles.root');
+            $valueMahasiswaFtis = config('modules.roles.mahasiswaftis'); 
+            $valueStaf = config('modules.roles.stafUnpar'); 
+            $valueDosenInformatika = config('modules.roles.dosenInformatika'); 
+            $valueMahasiswaInformatika = config('modules.roles.mahasiswaInformatika'); 
+            
+                
+            if(in_array($user->email,$valueRoot))
+            {
                 Auth::loginUsingId($user->id);
-                return redirect('https://instagram.com');
+                return redirect('/entriJadwalDosen');
             }
-            else{
+            else if(preg_match("/$valueMahasiswaFtis/", $user))
+            {
                 Auth::loginUsingId($user->id);
-                return redirect('https://youtube.com');
+                return redirect('/home');
             }
+            else if(preg_match("/$valueStaf/", $user))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/home');
+            }
+            else if(in_array($user->email,$valueDosenInformatika))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/home');
+            }
+            else if(preg_match("/$valueMahasiswaInformatika/", $user))
+            {
+                Auth::loginUsingId($user->id);
+                return redirect('/home');
+            }
+
             //Auth::loginUsingId($user->id);
             //return redirect('/home');
-        } else {
+        } 
+        else {
             $newUser = User::create([
                 'name' => $oauthUser->name,
                 'email' => $oauthUser->email,

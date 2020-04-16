@@ -25,3 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/entriJadwalDosen','HomeController@entriJadwalDosen')->name('entriJadwalDosen');
+//Route untuk content view
+Route::get('/entriJadwalDosen','EntriJadwalDosen@entriJadwalDosen')->name('entriJadwalDosen');

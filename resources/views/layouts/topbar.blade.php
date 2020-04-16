@@ -7,10 +7,37 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <!-- Ambil nama usernya -->
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
                 <a class="nav-link"> {{ Auth::user()->name }} </a>
+            </li> -->
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#" onclick="event.preventDefault(); 
+                document.getElementById('logout-form').submit();">Cetak Transkrip</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#" onclick="event.preventDefault(); 
+                document.getElementById('logout-form').submit();">Management Cetak Transkrip</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Perubahan Kuliah</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Management Perubahan Kuliah</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('entriJadwalDosen') }}">Entri Jadwal Dosen</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('lihatJadwalDosen') }}">Lihat Jadwal Dosen</a>
             </li>
         </ul>
+
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <!-- Untuk logout -->

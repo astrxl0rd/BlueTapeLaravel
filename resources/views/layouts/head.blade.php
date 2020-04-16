@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Blue Tape</title>
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
 </head>
