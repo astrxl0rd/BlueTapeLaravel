@@ -18,10 +18,7 @@ class GoogleController extends Controller
     public function callback()
     {
  
-        //jika user masih login lempar ke home
-    //    if (Auth::check()) {
-    //        return redirect('/Test');
-    //    }  
+
         $oauthUser = Socialite::driver('google')->user();
         $user = User::where('google_id', $oauthUser->id)->first();
         
@@ -62,11 +59,6 @@ class GoogleController extends Controller
                 return redirect('/home');
             }
             
-            
-            // else{
-            //     Auth::loginUsingId($user->id);
-            //     return redirect('https://youtube.com');
-            // }
         } else {
             $newUser = User::create([
                 'name' => $oauthUser->name,
