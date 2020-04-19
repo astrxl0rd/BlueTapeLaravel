@@ -1,4 +1,5 @@
-@extends('templates/Navbar')
+@extends('layouts/head')
+@extends('layouts/topbar')
 @section('container')
 <div class="container">
             <div class="row ">

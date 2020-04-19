@@ -36,7 +36,7 @@ class GoogleController extends Controller
             if(in_array($user->email,$valueRoot))
             {
                 Auth::loginUsingId($user->id);
-                return redirect('/home');
+                return redirect('/entriJadwalDosen');
             }
             else if(preg_match("/$valueMahasiswaFtis/", $user))
             {
