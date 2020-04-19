@@ -14,11 +14,11 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('perubahanKuliahManage') }}">Perubahan Kuliah</a>
+                <a class="nav-link" href="{{ route('perubahanKuliahRequest') }}">Perubahan Kuliah</a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('perubahanKuliahRequest') }}">Management Perubahan Kuliah</a>
+                <a class="nav-link" href="{{ route('perubahanKuliahManage') }}">Management Perubahan Kuliah</a>
             </li>
 
             <li class="nav-item active">
