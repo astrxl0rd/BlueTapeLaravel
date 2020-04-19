@@ -40,27 +40,27 @@ class GoogleController extends Controller
             if(in_array($user->email,$valueRoot))
             {
                 Auth::loginUsingId($user->id);
-                return redirect('/entriJadwalDosen');
+                return redirect('/transkripRequest');
             }
             else if(preg_match("/$valueMahasiswaFtis/", $user))
             {
                 Auth::loginUsingId($user->id);
-                return redirect('/home');
+                return redirect('/transkripRequest');
             }
             else if(preg_match("/$valueStaf/", $user))
             {
                 Auth::loginUsingId($user->id);
-                return redirect('/home');
+                return redirect('/transkripRequest');
             }
             else if(in_array($user->email,$valueDosenInformatika))
             {
                 Auth::loginUsingId($user->id);
-                return redirect('/home');
+                return redirect('/transkripRequest');
             }
             else if(preg_match("/$valueMahasiswaInformatika/", $user))
             {
                 Auth::loginUsingId($user->id);
-                return redirect('/home');
+                return redirect('/transkripRequest');
             }
 
             //Auth::loginUsingId($user->id);

@@ -8,4 +8,7 @@ use Illuminate\Http\Request;
 class TranskripManage extends Controller
 {
     //
+    public function transkripManage(){
+        return view('transkripManage/main');
+    }
 }

@@ -8,4 +8,7 @@ use Illuminate\Http\Request;
 class LihatJadwalDosen extends Controller
 {
     //
+    public function lihatJadwalDosen(){
+        return view('LihatJadwalDosen/main');
+    }
 }
