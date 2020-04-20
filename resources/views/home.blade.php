@@ -1,6 +1,7 @@
-@extends('layouts/head')
-@extends('layouts/topbar')
-@section('container')
+@extends('layouts.head')
+@extends('layouts.topbar')
+
+@section('content')
 <div class="container">
             <div class="row ">
                 <div class="col">
@@ -39,26 +40,11 @@
                            
                         </div>
 
-                    </div>
+                    You are logged in!
                     <br>
-                    <div class="card">
-                        <div class="card-header">
-                            Histori Permohonan
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Tanggal Permohonan</th>
-                                    <th scope="col">Tipe Transkrip</th>
-                                    <th scope="col">Tanggal Jawab/Cetak</th>
-                                    <th scope="col">Keterangan</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                              
-        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

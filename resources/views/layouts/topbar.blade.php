@@ -1,23 +1,22 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="https://google.com"><img src="img/logo.png" width="50"/></a>
+s<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" ><img src="img/logo.png" width="50"/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-   
-        <div>
+           
+        <div class="navbar-nav mr-auto">
             @yield('navBar');
         </div>
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="{{ route('/home') }}">Cetak Transkrip</a>
+        <!-- <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="#" >Cetak Transkrip</a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="#">Management Cetak Transkrip</a>
+                <a class="nav-link" href="#" >Management Cetak Transkrip</a>
             </li>
 
             <li class="nav-item active">
@@ -34,7 +33,8 @@
 
             <li class="nav-item active">
                 <a class="nav-link" href="#">Lihat Jadwal Dosen</a>
-            </li> -->
+            </li>
+        </ul> -->
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -49,9 +49,10 @@
                 </form>
             </li>
         </ul>
-        </div>
+    </div>
 </nav>
 
 <main class="py-4">
-@yield('container')
+    @yield('content')
 </main>
+
