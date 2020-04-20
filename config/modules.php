@@ -4,7 +4,7 @@
 */
 return [
     'roles' =>[
-         'root' => array('cis08025@gmail.com','aimeenatinee@gmail.com'),
+         'root' => array('reynaldi.rahadian@gmail.com','reynvldi@gmail.com'),
          'admin'=> '',
          'mahasiswaftis' => '(7[123]\\d{5})|(20[1-9][0-9]7[123][0-9]{4})|(61[678][0-9]{7})@student\\.unpar\\.ac\\.id',
          'stafUnpar' => '.+@unpar\\.ac\\.id',

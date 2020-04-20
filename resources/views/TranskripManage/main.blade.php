@@ -44,7 +44,7 @@
                                     <span class="input-group-text">Cari NPM:</span>
                                 </div>
 
-                                <input name="npm" class="form-control" type="text" placeholder="2013730013" maxlength="10" minlength="10"<?= $npmQuery ??''=== NULL ?>/>
+                                <input name="npm" class="form-control" type="text" placeholder="" maxlength="10" minlength="10"<?= $npmQuery ??''=== NULL ?>/>
                                 <div class="input-group-append">
                                     <input class="btn btn-primary" type="submit" value="Cari"/>
                                 </div>
