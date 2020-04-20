@@ -1,163 +1,111 @@
+@extends('layouts.head')
+@extends('layouts.topbar')
 
-@extends('templates/head_loggedin')
 
-    
-    @section('container')
-        <div class="container">
-            <div class="row ">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            Permohonan Baru
-                        </div>
-                        <div class="card-body">
+@section('navBar')
+        <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('transkripRequest') }}" >Cetak Transkrip</a>
+            </li>
 
-                            <?php if (is_array($forbiddenTypes ?? '')): ?>
-                                <form method="POST" action="/TranskripRequest/add">
-                                    <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <label class="col-form-label">Yang memohon:</label>
-                                            <input class="form-control" type="email" name="requestByEmail" value="<?= $requestByEmail ?>" readonly/>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <label class="col-form-label">NPM:</label>
-                                            <input class="form-control" type="text" value="<?= $requestByNPM ?>" readonly/>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <label class="col-form-label">Nama:</label>
-                                            <input class="form-control" type="text" name="requestByName" value="<?= $requestByName ?>" readonly/>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('transkripManage') }}">Manajemen Cetak Transkrip</a>
+            </li>
 
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <label class="col-form-label">Tipe Transkrip:</label>
-                                            <select class="form-control" name="requestType">
-                                                <?php foreach (Transkrip_model::REQUEST_TYPES as $type => $name): ?>
-                                                    <?php if (!in_array($type, $forbiddenTypes ?? '')): ?>
-                                                        <option value="<?= $type ?>"><?= $name ?></option>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <label class="col-form-label">Keperluan:</label>
-                                            <input class="form-control" type="text" name="requestUsage" required/>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <input class="btn btn-primary" type="submit" class="button" value="Kirim Permohonan">
-                                        </div>
-                                    </div>
-                                </form>
-                            <?php else: ?>
-                                <p>&nbsp;</p>
-                                <?= $forbiddenTypes ?? '' ?>
-                            <?php endif ?>
-                        </div>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('perubahanKuliahRequest') }}">Perubahan Kuliah</a>
+            </li>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('perubahanKuliahManage') }}">Manajemen Perubahan Kuliah</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('entriJadwalDosen') }}">Entri Jadwal Dosen</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('lihatJadwalDosen') }}">Lihat Jadwal Dosen</a>
+            </li>
+        </ul>
+@endsection
+
+@section('content')
+<div class="container">
+    <div class="row ">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Permohonan Baru
+                </div>
+            
+            <div class="card-body">
+                <form method="POST" action="/TranskripRequest/add">
+                    @csrf
+                        <!-- Mengambil data dari db trasskrip -->
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label class="col-form-label">Yang memohon:</label>
+                                <input class="form-control" type="email" name="requestByEmail" value="<?= $requestByEmail ??'' ?>" readonly/>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label class="col-form-label">NPM:</label>
+                                <input class="form-control" type="text" value="<?= $requestByNPM ??''?>" readonly/>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label class="col-form-label">Nama:</label>
+                                <input class="form-control" type="text" name="requestByName" value="<?= $requestByName ??''?>" readonly/>
+                            </div>
                     </div>
                     <br>
-                    <div class="card">
-                        <div class="card-header">
-                            Histori Permohonan
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label>Tipe Transkrip:
+                                <input class="form-control" type="text" required/>
+                            </label>
                         </div>
-                        <div class="card-body">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Tanggal Permohonan</th>
-                                    <th scope="col">Tipe Transkrip</th>
-                                    <th scope="col">Tanggal Jawab/Cetak</th>
-                                    <th scope="col">Keterangan</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php foreach ($requests ?? '' as $request): ?>
-                                    <tr>
-                                        <th>#<?= $request->id ?></th>
-                                        <td><span class="badge badge-<?= $request->labelClass ?>"><?= $request->status ?></span></td>
-                                        <td><time datetime="<?= $request->requestDateTime ?>"><?= $request->requestDateString ?></time></td>
-                                        <td><?= $request->requestType ?></td>
-                                        <td><time datetime="<?= $request->answeredDateTime ?>"><?= $request->answeredDateString ?></td>
-                                        <td><?= $request->answeredMessage ?></td>
-                                        <td>
-                                            <!-- Button trigger modal -->
-                                            <a data-toggle="modal" data-target="#lihatModal<?= $request->id ?>" id="detail<?= $request->id ?>">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="lihatModal<?= $request->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle">Detail Permohonan #<?= $request->id ?></h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <table class="table ">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <th>E-mail Pemohon</th>
-                                                                    <td><?= $request->requestByEmail ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Nama Pemohon</th>
-                                                                    <td><?= $request->requestByName ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Tanggal Permohonan</th>
-                                                                    <td><?= $request->requestDateTime ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Tipe Transkrip</th>
-                                                                    <td><?= $request->requestType ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Keperluan</th>
-                                                                    <td><?= $request->requestUsage ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="col">Jawaban</th>
-                                                                    <td><?= $request->answer ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>E-mail Penjawab</th>
-                                                                    <td><?= $request->answeredByEmail ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Tanggal Dijawab</th>
-                                                                    <td><?= $request->answeredDateTime ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Keterangan Penjawab</th>
-                                                                    <td><?= $request->answeredMessage ?></td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                        <div class="col-lg-8">
+                            <label>Keperluan:
+                                <input class="form-control " type="text" required/>
+                            </label>
                         </div>
                     </div>
-                </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input class="btn btn-primary" type="submit" class="button" value="Kirim Permohonan">
+                        </div>
+                    </div>
+                </form>            
             </div>
         </div>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    Histori Permohonan
+                </div>
 
- @endsection
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Tanggal Permohonan</th>
+                                <th scope="col">Tipe Transkrip</th>
+                                <th scope="col">Tanggal Jawab/Cetak</th>
+                                <th scope="col">Keterangan</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>         
+    </div>
+</div>
+    
+    <tbody>
+@endsection
