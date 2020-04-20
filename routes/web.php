@@ -26,12 +26,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/entriJadwalDosen','HomeController@entriJadwalDosen')->name('entriJadwalDosen');
 
 //Route untuk content view
-Route::get('/entriJadwalDosen','EntriJadwalDosen@entriJadwalDosen')->name('entriJadwalDosen');
-Route::get('/lihatJadwalDosen','LihatJadwalDOsen@lihatJadwalDosen')->name('lihatJadwalDosen');
-Route::get('/perubahanKuliahManage','PerubahanKuliahManage@perubahanKuliahManage')->name('perubahanKuliahManage');
-Route::get('/perubahanKuliahRequest','PerubahanKuliahRequest@perubahanKuliahRequest')->name('perubahanKuliahRequest');
-Route::get('/transkripManage','TranskripManage@transkripManage')->name('transkripManage');
-Route::get('/transkripRequest','TranskripRequest@transkripRequest')->name('transkripRequest');
+Route::get('/EntriJadwalDosen','EntriJadwalDosen@entriJadwalDosen')->name('entriJadwalDosen');
+Route::get('/LihatJadwalDosen','LihatJadwalDOsen@lihatJadwalDosen')->name('lihatJadwalDosen');
+Route::get('/PerubahanKuliahManage','PerubahanKuliahManage@perubahanKuliahManage')->name('perubahanKuliahManage');
+Route::get('/PerubahanKuliahRequest','PerubahanKuliahRequest@perubahanKuliahRequest')->name('perubahanKuliahRequest');
+Route::get('/TranskripManage','TranskripManage@transkripManage')->name('transkripManage');
+Route::get('/TranskripRequest','TranskripRequest@transkripRequest')->name('transkripRequest');

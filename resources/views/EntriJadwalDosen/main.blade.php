@@ -10,7 +10,7 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('transkripManage') }}">Management Cetak Transkrip</a>
+                <a class="nav-link" href="{{ route('transkripManage') }}">Manajemen Cetak Transkrip</a>
             </li>
 
             <li class="nav-item active">
@@ -18,7 +18,7 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('perubahanKuliahManage') }}">Management Perubahan Kuliah</a>
+                <a class="nav-link" href="{{ route('perubahanKuliahManage') }}">Manajemen Perubahan Kuliah</a>
             </li>
 
             <li class="nav-item active">
