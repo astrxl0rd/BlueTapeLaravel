@@ -36,7 +36,7 @@ class GoogleController extends Controller
             $valueDosenInformatika = config('modules.roles.dosenInformatika'); 
             $valueMahasiswaInformatika = config('modules.roles.mahasiswaInformatika'); 
             
-                
+       
             if(in_array($user->email,$valueRoot))
             {
                 Auth::loginUsingId($user->id);

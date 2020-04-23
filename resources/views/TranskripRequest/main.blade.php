@@ -3,6 +3,7 @@
 
 
 @section('navBar')
+
         <ul class="navbar-nav mr-auto">
             
             <li class="nav-item active">
@@ -29,6 +30,7 @@
                 <a class="nav-link" href="{{ route('lihatJadwalDosen') }}">Lihat Jadwal Dosen</a>
             </li>
         </ul>
+        
 @endsection
 
 @section('content')

@@ -4,7 +4,8 @@
 
 @section('navBar')
         <ul class="navbar-nav mr-auto">
-            
+        
+        
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('transkripRequest') }}" >Cetak Transkrip</a>
             </li>
