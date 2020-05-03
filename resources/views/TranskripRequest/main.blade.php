@@ -47,7 +47,7 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <label class="col-form-label">Yang memohon:</label>
-                                <input class="form-control" type="email" name="requestByEmail" value="<?= $requestByEmail ??'' ?>" readonly/>
+                                <input class="form-control" type="email" name="requestByEmail" value="<?= Auth::user()->email ?>" readonly/>
                             </div>
 
                             <div class="col-lg-4">
@@ -57,7 +57,7 @@
 
                             <div class="col-lg-4">
                                 <label class="col-form-label">Nama:</label>
-                                <input class="form-control" type="text" name="requestByName" value="<?= $requestByName ??''?>" readonly/>
+                                <input class="form-control" type="text" name="requestByName" value="<?= Auth::user()->name ?>" readonly/>
                             </div>
                     </div>
                     <br>
