@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('google', 'GoogleController@redirect');
-Route::get('google/callback', 'GoogleController@callback');
+//Route::get('google/callback', 'GoogleController@callback');
+Route::get('google/callback', 'GoogleController@callback')->middleware('cekLogin');
+
 
 Auth::routes();
 
