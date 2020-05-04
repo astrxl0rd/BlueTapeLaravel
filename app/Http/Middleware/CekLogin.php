@@ -28,7 +28,7 @@ class CekLogin
         $valueDosenInformatika = config('modules.roles.dosenInformatika'); 
         $valueMahasiswaInformatika = config('modules.roles.mahasiswaInformatika'); 
         
-        if(Auth::check()){
+       
             if ($user) {
                 $valueRoot = config('modules.roles.root');
                 $valueMahasiswaFtis = config('modules.roles.mahasiswaftis'); 
@@ -64,12 +64,10 @@ class CekLogin
                     return redirect('/TranskripRequest');
                 }
             } 
-        }
-        else{
-            return view('auth/login');
-        }
+            return $next($request);
+        
         
 
-        return $next($request);
+        
     }
 }
